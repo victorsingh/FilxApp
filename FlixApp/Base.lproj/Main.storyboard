@@ -32,7 +32,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzn-9G-Hae">
-                                                    <rect key="frame" x="109" y="53" width="251" height="84"/>
+                                                    <rect key="frame" x="129" y="53" width="231" height="84"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="84" id="bab-by-fOe"/>
                                                     </constraints>
@@ -42,14 +42,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WGq-7b-cYg">
-                                                    <rect key="frame" x="12" y="11" width="88" height="139"/>
+                                                    <rect key="frame" x="12" y="11" width="108" height="139"/>
                                                     <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="88" id="gqC-O8-TIM"/>
+                                                        <constraint firstAttribute="height" constant="139" id="1hU-WQ-lVr"/>
+                                                        <constraint firstAttribute="width" constant="108" id="gqC-O8-TIM"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" text="The Meg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYe-b4-KXk">
-                                                    <rect key="frame" x="109" y="18" width="230" height="27"/>
+                                                    <rect key="frame" x="129" y="18" width="210" height="27"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
