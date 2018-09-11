@@ -17,9 +17,16 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     var isLoading: Bool = false
     var movies: [[String: Any]] = []
     var refreshControl: UIRefreshControl!
-    
+    let alertController = UIAlertController(title: "Cannot Get Movies", message: "The internet Connection Appearss to be offline", preferredStyle: .alert)
+    // create a cancel action
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        let retryAction = UIAlertAction(title: "Retry", style: .cancel) { (action) in
+            // handle retry response here. Doing nothing will dismiss the view.
+            self.fetchMovies()
+        }
+        alertController.addAction(retryAction)
 
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector (NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)
@@ -43,6 +50,9 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         let task = session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print(error.localizedDescription)
+                self.present(self.alertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                }
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 print(dataDictionary)
@@ -50,6 +60,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 self.movies = movies
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
+            
                 if(self.isLoading == true) {
                     self.activityIndicator.stopAnimating()
                     self.isLoading = false
@@ -61,6 +72,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 //                }
             }
         }
+
         task.resume()
     }
     
