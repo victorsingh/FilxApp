@@ -35,7 +35,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://imgur.com/ZBaANFZ' />
+<img src='https://i.imgur.com/ZBaANFZ.gif' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
