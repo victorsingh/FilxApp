@@ -23,9 +23,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="xSk-Kc-TJO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="BYZ-38-t0r" id="ABM-Nh-k90"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="161" id="1Td-Ay-xet" customClass="MovieCellTableViewCell" customModule="FlixApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="161"/>
+                                        <rect key="frame" x="0.0" y="72" width="375" height="161"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Td-Ay-xet" id="PNz-d1-M6T">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="160.5"/>
@@ -88,6 +96,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="zTO-jM-dem" id="EZg-3I-R6b"/>
+                        <outlet property="searchBar" destination="xSk-Kc-TJO" id="Z9f-Xj-HtC"/>
                         <outlet property="tableView" destination="hta-zX-e0c" id="2Ul-g8-X7w"/>
                     </connections>
                 </viewController>

@@ -9,13 +9,15 @@
 import UIKit
 import AlamofireImage
 
-class NowPlayingViewController: UIViewController, UITableViewDataSource {
+class NowPlayingViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var searchBar: UISearchBar!
     var isLoading: Bool = false
     var movies: [[String: Any]] = []
+    var currentMovies: [[String: Any]] = []
     var refreshControl: UIRefreshControl!
     let alertController = UIAlertController(title: "Cannot Get Movies", message: "The internet Connection Appearss to be offline", preferredStyle: .alert)
     // create a cancel action
@@ -38,6 +40,10 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         // Do any additional setup after loading the view.
     }
     
+    private func setUpSearchBar() {
+        searchBar.delegate = self
+    }
+    
     @objc func didPullToRefresh (_ refreshControl: UIRefreshControl){
         fetchMovies()
     }
@@ -58,6 +64,8 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 print(dataDictionary)
                 let movies = dataDictionary["results"] as! [[String: Any]]
                 self.movies = movies
+                self.currentMovies = movies
+
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
             
@@ -65,11 +73,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                     self.activityIndicator.stopAnimating()
                     self.isLoading = false
                 }
-
-                //                for movie in movies {
-                //                    let title = movie["title"] as! String
-                //                    print(title)
-                //                }
             }
         }
 
@@ -77,12 +80,22 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        return currentMovies.count
+    }
+    
+    func searchBar (_ searchBar: UISearchBar, textDidChange searchText: String) {
+        currentMovies = movies.filter ({ (movie: [String: Any]) -> Bool in
+            guard let text = searchBar.text else { return false }
+            let movieString = movie["title"] as! String
+            return searchText.isEmpty ? (movie["title"] != nil) : movieString.range(of: text, options: .caseInsensitive, range: nil, locale: nil) != nil
+        })
+        tableView.reloadData()
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCellTableViewCell
-        let movie = movies[indexPath.row]
+        let movie = currentMovies[indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
         cell.titleLabel.text = title
