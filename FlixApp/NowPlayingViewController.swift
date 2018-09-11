@@ -19,7 +19,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UISearc
     var movies: [[String: Any]] = []
     var currentMovies: [[String: Any]] = []
     var refreshControl: UIRefreshControl!
-    let alertController = UIAlertController(title: "Cannot Get Movies", message: "The internet Connection Appearss to be offline", preferredStyle: .alert)
+    let alertController = UIAlertController(title: "Cannot Get Movies", message: "Your Internet Connection Appears to be offline", preferredStyle: .alert)
     // create a cancel action
 
     override func viewDidLoad() {
@@ -37,6 +37,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UISearc
         activityIndicator.startAnimating()
         self.isLoading = true
         fetchMovies()
+
         // Do any additional setup after loading the view.
     }
     
