@@ -22,7 +22,7 @@ class SuperHeroViewController: UIViewController, UICollectionViewDataSource {
         // Do any additional setup after loading the view.
         layout.minimumInteritemSpacing = 5
         layout.minimumLineSpacing = layout.minimumInteritemSpacing
-        let cellsPerLine: CGFloat = 4
+        let cellsPerLine: CGFloat = 2
         let interItemSpacingTotal = layout.minimumInteritemSpacing * (cellsPerLine - 1)
         let width = collectionView.frame.size.width / cellsPerLine - interItemSpacingTotal / cellsPerLine
         layout.itemSize = CGSize(width: width, height: width * 3/2)
