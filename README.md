@@ -30,7 +30,12 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+iPad Air:
+<img src='https://i.imgur.com/Rxu8N7W.gif' title='iPad Video Walkthrough' width='' alt='Video Walkthrough' />
+
+ihone Xr:
+<img src='https://i.imgur.com/Vi69Gos.gif' title='iPhone X Video Walkthrough' width='' alt='Video Walkthrough' />
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
